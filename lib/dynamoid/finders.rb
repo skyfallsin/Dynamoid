@@ -78,7 +78,7 @@ module Dynamoid
       # @return [Array] an array of all matching items
       #
       def find_all_by_composite_key(hash_key, options = {})
-        Dynamoid::Adapter.query(self.table_name, options.merge({hash_value: hash_key})).collect do |item|
+        Dynamoid::Adapter.query(self.table_name, options.merge({:hash_value => hash_key})).collect do |item|
           from_database(item)
         end
       end
